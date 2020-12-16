@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Manager
 from django.utils import timezone
+from django.urls import reverse
 
 
 class PostedManager(Manager):
@@ -12,25 +13,33 @@ class PostedManager(Manager):
 class Post(models.Model):
 
     STATUS_CHOICES = (
-        ('Published', 'published'),
-        ('Draft', 'draft')
+        ('posted', 'Posted'),
+        ('draft', 'Draft'),
     )
 
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
-    under_title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='media')
+    under_title = models.CharField(max_length=255, blank=True, null=True, default='_')
+    image = models.ImageField(upload_to='media', blank=True, null=True)
     text = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    posted = models.DateTimeField(default=timezone.now)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES)
+    published = models.DateTimeField(default=timezone.now)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
 
     objects = models.Manager()
-    published = PostedManager()
+    posted = PostedManager()
 
     class Meta:
-        ordering = ('-posted',)
+        ordering = ('-published',)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[self.posted.year, self.posted.month,
+                                            self.posted.day, self.posted.slug])
+
+    # def get_absolute_url(self):
+    #     return reverse('blogApp:post_detail', args=[self.published.year, self.published.month,
+    #                                                 self.published.day, self.slug])

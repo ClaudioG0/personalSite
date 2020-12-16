@@ -3,5 +3,33 @@
 {% block header_title %}Sergey Tsikin{% endblock %}
 {% block header_lower_title %}programmer. student. explorer. {% endblock %}
 {% block content %}
-<h2>test title</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+          {% for post in posts %}
+        <div class="post-preview">
+          <a href="{{ post.slug }}">
+            <h2 class="post-title">
+              {{ post.title }}
+            </h2>
+            <h3 class="post-subtitle">
+              {{ post.under_title }}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">{{ post.author }}</a>
+            on {{ month }} {{ post.published.day }}, {{ post.published.year }}</p>
+        </div>
+          {% endfor %}
+        <hr>
+
+        <hr>
+        <!-- Pager -->
+        {% include 'pagination.html' with page=posts %}
+<!--        <div class="clearfix">-->
+<!--          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>-->
+<!--        </div>-->
+      </div>
+    </div>
+  </div>
 {% endblock %}
