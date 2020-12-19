@@ -44,3 +44,7 @@ def post_detail(request, post):
 
 def about_view(request):
     return render(request, 'mainApp/about.html')
+
+
+def contact_view(request):
+    return render(request, 'mainApp/contact.html')
