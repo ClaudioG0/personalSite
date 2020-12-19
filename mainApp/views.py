@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 import datetime
-from .models import Post
+from .models import Post, Project
 from django.template.defaultfilters import date
 from taggit.models import Tag
 from django.db.models import Count
@@ -48,3 +48,20 @@ def about_view(request):
 
 def contact_view(request):
     return render(request, 'mainApp/contact.html')
+
+
+def projects_view(request):
+    projects = Project.objects.all()
+    context = {
+        'projects': projects
+    }
+    return render(request, 'mainApp/myProjects.html', context)
+
+
+def project_detail(request, project):
+    project = get_object_or_404(Project, slug=project)
+
+    context ={
+        'project': project
+    }
+    return render(request, 'mainApp/project.html', context)

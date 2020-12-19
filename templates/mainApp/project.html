@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load markdown_extras %}
+
+{% block title %}post{% endblock %}
+{% block header_title %}{{ project.title }}{% endblock %}
+{% block header_lower_title %}{{ project.under_title }}{% endblock %}
+{% block content %}
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          {{ project.text | markdown | safe }}
+      </div>
+    </div>
+  </article>
+
+  <hr>
+{% endblock %}
+
