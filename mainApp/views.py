@@ -40,3 +40,7 @@ def post_detail(request, post):
     }
 
     return render(request, 'mainApp/post.html', context)
+
+
+def about_view(request):
+    return render(request, 'mainApp/about.html')
