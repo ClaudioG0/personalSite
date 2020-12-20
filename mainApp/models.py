@@ -50,7 +50,7 @@ class Project(models.Model):
 
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
-    under_title = models.CharField(max_length=255, blank=True, null=True, default='_')
+    under_title = models.CharField(max_length=255, blank=True, null=True, default="  ")
     image = models.ImageField(upload_to='media', blank=True, null=True)
     text = models.TextField()
 

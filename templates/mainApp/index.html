@@ -19,7 +19,7 @@
           </a>
           <p class="post-meta">Posted by
             <a href="#">{{ post.author }}</a>
-            on {{ month }} {{ post.published.day }}, {{ post.published.year }}</p>
+            on {{ post.published.day }}, {{ post.published.month }} {{ post.published.year }}</p>
         </div>
           {% endfor %}
         {% include 'pagination.html' with page=posts %}

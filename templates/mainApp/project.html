@@ -3,6 +3,7 @@
 
 {% block title %}post{% endblock %}
 {% block header_title %}{{ project.title }}{% endblock %}
+{% block picture %}background-image: url({{ project.image.url }}) {% endblock %}
 {% block header_lower_title %}{{ project.under_title }}{% endblock %}
 {% block content %}
   <!-- Post Content -->
