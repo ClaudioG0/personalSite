@@ -9,9 +9,9 @@
     <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
-    <link href="{% static 'css/styleMain.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styleMain.css' %}" rel="stylesheet">
 
 </head>
 <body>
@@ -39,14 +39,14 @@
   </nav>
 <!--background-image: url('img/home-bg.jpg')-->
   <!-- Header here -->
-  <header class="masthead" style="{% block picture %}{% endblock %}">
+  <header class="top" style="{% block picture %}{% endblock %}">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
+        <div class="col-md-10 col-lg-8 mx-auto">
+          <div class="header__title_main text-center">
             <h1>{% block header_title %} {% endblock %}</h1>
-            <span class="subheading">{% block header_lower_title %} {% endblock %}</span>
+            <span class="header__lower_title">{% block header_lower_title %} {% endblock %}</span>
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://github.com/ClaudioG0">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -85,7 +85,7 @@
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="https://github.com/ClaudioG0">
+              <a href="https://vk.com/tsikin0">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-vk fa-stack-1x fa-inverse"></i>
@@ -101,7 +101,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Sergey Tsikin</p>
+          <p class="myName text-muted">Sergey Tsikin</p>
         </div>
       </div>
     </div>
