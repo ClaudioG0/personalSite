@@ -34,9 +34,10 @@ def index(request, tag_slug=None):
 
 def post_detail(request, post):
     post = get_object_or_404(Post, slug=post, status='posted')
-
+    otherPosts = Post.posted.all()
     context = {
-        'post': post
+        'post': post,
+        'otherPosts': otherPosts
     }
 
     return render(request, 'mainApp/post.html', context)

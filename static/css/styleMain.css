@@ -1,7 +1,8 @@
 body {
-  font-size: 18px;
-  color: #212529;
+  font-size: 21px;
+  color: #black;
   font-family: 'JetBrains Mono', 'Times New Roman', serif;
+
 }
 
 p {
@@ -231,7 +232,7 @@ footer .myName {
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  color: #fff;
+  color: red;
   background-color: #4b0082;
 }
 
@@ -258,3 +259,14 @@ article code {
     white-space: pre-wrap;
 
 }
+
+row-flex {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#carousel .img-fluid {
+width: 800px;
+height: 400px;
+}
+

@@ -9,7 +9,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
           {% for post in posts %}
         <div class="post-preview">
-          <a href="{{ post.slug }}">
+          <a href="{% url 'post_detail' post.slug %}">
             <h2 class="post-title">
               {{ post.title }}
             </h2>
@@ -17,12 +17,11 @@
               {{ post.under_title }}
             </h3>
           </a>
-          <p class="post-meta">Posted by
-            <a href="#">{{ post.author }}</a>
-            on {{ post.published.day }}, {{ post.published.month }} {{ post.published.year }}</p>
+          <p class="post-meta">Posted
+<!--            <a href="#">{{ post.author }}</a>-->
+            on {{ post.published.day }}.{{ post.published.month }}.{{ post.published.year }}</p>
         </div>
           {% endfor %}
-        {% include 'pagination.html' with page=posts %}
       </div>
     </div>
   </div>

@@ -14,6 +14,27 @@
           {{ post.text | markdown | safe }}
       </div>
     </div>
+    </div>
   </article>
+<h2 class="text-center">Other articles</h2>
+<div id="carousel" class="carousel slide col-lg-6 mx-auto" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="text-center carousel-item active">
+      <img class="img-fluid" src="/media/media/brain0.jpeg" alt="article 0">
+    </div>
+    <div class="text-center carousel-item">
+      <img class="img-fluid" src="/media/media/bg1.jpg" alt="article 1">
+    </div>
+    <div class="text-center carousel-item">
+      <img class="img-fluid" src="/media/media/pic0.jpeg" alt="article 3">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </a>
+  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
+</div>
 {% endblock %}
 
