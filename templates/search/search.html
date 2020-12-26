@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}search{% endblock %}
+{% block picture %}{% endblock %}
+{% block header_title %}search{% endblock %}
+{% block content %}
+<form method="get">
+  <input type="text" id="q" name="q" placeholder="your search...">
+</form>
+{% for item in posts %}
+  {{ item.title }}<br>
+  {{ item.under_title }}<br>
+  {{ item.published }}<br>
+<br>
+{% endfor %}
+{% endblock %}
