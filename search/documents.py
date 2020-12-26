@@ -12,6 +12,7 @@ class PostDocument(DocType):
 
         fields = [
             'title',
+            'slug',
             'text',
             'under_title',
             'published',

@@ -8,7 +8,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
           {% for project in projects %}
         <div class="post-preview">
-          <a href="{% url 'project' project.slug %}">
+          <a href="{% url 'mainApp:project' project.slug %}">
             <h2 class="post-title">
               {{ project.title }}
             </h2>

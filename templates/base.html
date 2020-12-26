@@ -15,21 +15,26 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'index' %}">Personal Site</a>
+      <a class="navbar-brand" href="{% url 'mainApp:index' %}">Personal Site</a>
 
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
 
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About</a>
+            <a class="nav-link" href="{% url 'mainApp:about' %}">About</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            <a class="nav-link" href="{% url 'mainApp:contact' %}">Contact</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'portfolio' %}">My projects</a>
+            <a class="nav-link" href="{% url 'mainApp:portfolio' %}">My projects</a>
+          </li>
+          <li class="nav-item search">
+            <a class="nav-link" href="{% url 'searchApp:search' %}">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
           </li>
         </ul>
       </div>

@@ -3,13 +3,41 @@
 {% block picture %}{% endblock %}
 {% block header_title %}search{% endblock %}
 {% block content %}
-<form method="get">
-  <input type="text" id="q" name="q" placeholder="your search...">
-</form>
-{% for item in posts %}
-  {{ item.title }}<br>
-  {{ item.under_title }}<br>
-  {{ item.published }}<br>
-<br>
-{% endfor %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <form name="sentMessage" id="contactForm">
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Name</label>
+              <input type="text" class="form-control" placeholder="Search" id="q" name="q">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+          {% for post in posts %}
+        <div class="post-preview">
+          <a href="{% url 'mainApp:post_detail' post.slug %}">
+            <h2 class="post-title">
+              {{ post.title }}
+            </h2>
+            <h3 class="post-subtitle">
+              {{ post.under_title }}
+            </h3>
+          </a>
+          <p class="post-meta">Posted
+<!--            <a href="#">{{ post.author }}</a>-->
+            on {{ post.published.day }}.{{ post.published.month }}.{{ post.published.year }}</p>
+        </div>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
