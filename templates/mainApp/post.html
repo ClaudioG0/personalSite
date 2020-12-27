@@ -20,14 +20,20 @@
 <div id="carousel" class="carousel slide col-lg-6 mx-auto" data-ride="carousel">
   <div class="carousel-inner">
     <div class="text-center carousel-item active">
-      <img class="img-fluid" src="/media/media/brain0.jpeg" alt="article 0">
+      <h5>{{ lastPost.title }}</h5>
+      <a href="{% url 'mainApp:post_detail' lastPost.slug %}">
+        <img class="img-fluid" src="{{ lastPost.image.url }}" alt="new article">
+      </a>
     </div>
+    {% for otherPost in otherPosts %}
     <div class="text-center carousel-item">
-      <img class="img-fluid" src="/media/media/bg1.jpg" alt="article 1">
+      <h5>{{ otherPost.title }}</h5>
+      <a href="{% url 'mainApp:post_detail' otherPost.slug %}">
+        <img class="img-fluid" src="{{ otherPost.image.url }}" alt="{{ otherPost.slug }}">
+      </a>
     </div>
-    <div class="text-center carousel-item">
-      <img class="img-fluid" src="/media/media/pic0.jpeg" alt="article 3">
-    </div>
+
+    {% endfor %}
   </div>
   <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

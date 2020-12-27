@@ -32,9 +32,11 @@
           </p>
         </div>
           {% endfor %}
-        {% include 'pagination.html' with page=posts %}
 
       </div>
+
     </div>
+            {% include 'pagination.html' with page=posts %}
+
   </div>
 {% endblock %}

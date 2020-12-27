@@ -14,7 +14,7 @@ def index(request, tag_slug=None):
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
         object_list = object_list.filter(tags__in=(tag,))
-    paginator = Paginator(object_list, 3)
+    paginator = Paginator(object_list, 5)
     page = request.GET.get('page')
     try:
         posts = paginator.page(page)
@@ -34,10 +34,12 @@ def index(request, tag_slug=None):
 
 def post_detail(request, post):
     post = get_object_or_404(Post, slug=post, status='posted')
-    otherPosts = Post.posted.all()
+    lastPost = Post.posted.latest('published')
+    otherPosts = Post.posted.all().exclude(slug=post.slug).exclude(slug=lastPost.slug)
     context = {
         'post': post,
-        'otherPosts': otherPosts
+        'otherPosts': otherPosts,
+        'lastPost': lastPost
     }
 
     return render(request, 'mainApp/post.html', context)
