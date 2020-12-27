@@ -35,7 +35,7 @@ def index(request, tag_slug=None):
 def post_detail(request, post):
     post = get_object_or_404(Post, slug=post, status='posted')
     lastPost = Post.posted.latest('published')
-    otherPosts = Post.posted.all().exclude(slug=post.slug).exclude(slug=lastPost.slug)
+    otherPosts = Post.posted.all().exclude(slug=post.slug).exclude(slug=lastPost.slug).order_by('')
     context = {
         'post': post,
         'otherPosts': otherPosts,
