@@ -7,6 +7,7 @@ app_name = 'mainApp'
 
 urlpatterns = [
     path('', index, name='index'),
+    path('tag/<slug:tag_slug>/', index, name='post_list_by_tag'),
     path('blog/<slug:post>/', post_detail, name='post_detail'),
     path('about', about_view, name='about'),
     path('contact', contact_view, name='contact'),

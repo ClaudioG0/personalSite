@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import datetime
 from .models import Post, Project
 from django.template.defaultfilters import date
@@ -13,8 +13,8 @@ def index(request, tag_slug=None):
 
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
-        object_list = object_list.filter(tags__in=[tag])
-    paginator = Paginator(object_list, 2)
+        object_list = object_list.filter(tags__in=(tag,))
+    paginator = Paginator(object_list, 3)
     page = request.GET.get('page')
     try:
         posts = paginator.page(page)
@@ -24,7 +24,7 @@ def index(request, tag_slug=None):
         posts = paginator.page(paginator.num_pages)
 
     context = {
-        'posts': Post.posted.all(),
+        'posts': posts,
         'page': page,
         'tag': tag
     }

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models import Manager
 from django.utils import timezone
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 
 class PostedManager(Manager):
@@ -11,6 +12,7 @@ class PostedManager(Manager):
 
 
 class Post(models.Model):
+    tags = TaggableManager()
 
     STATUS_CHOICES = (
         ('posted', 'Posted'),
